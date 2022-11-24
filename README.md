@@ -75,3 +75,35 @@ Keduanya dapat digunakan untuk membuat variabel yang bersifat immutable. Namun, 
 3. Membuat `budget.dart` untuk model Budget.
 4. Membuat `form.dart` yang berisikan form field untuk diisi user dengan `TextFormField` untuk judul dan nominal budget, `DropdownButtonFormField` untuk jenis budget, `showDatePicker` untuk date budget (bonus), dan `TextButton` untuk menyimpan budget ke dalam list budget dan menampilkan datanya dalam sebuah pop up dialog. 
 5. Membuat `databudget.dart` untuk mengambil data budget dari list budget dan menampilkannya dalam bentuk card.
+
+# **Tugas 9: Integrasi Web Service pada Flutter**
+
+## Pengambilan Data JSON Tanpa Membuat Model
+Ya, kita bisa melakukan pengambilan data JSON tanpa membuat model terlebih dahulu. Akan tetapi cara ini tidak lebih baik dibandingkan membuat model sebelum melakukan pengambilan data JSON, karena strukturnya tidak sesuai dengan apa yang diinginkan dan kita tidak dapat mengakses datanya sebagai sebuah "class" sehingga lebih sulit digunakan dan kurang efisien.
+
+## Widget dan Fungsinya
+- `Checkbox`: widget untuk membuat checkbox Material Design.
+- `FutureBuilder`: widget yang membangun dirinya sendiri berdasarkan snapshot interaksi terbaru dengan [Future].
+- `ElevatedButton`: widget untuk membuat elevated button untuk tombol Back.
+- `AsyncSnapshot`: widget yang merupakan representasi *immutable* sebagai hasil terbaru dari event asinkronus.
+- `CircularProgressIndicator`: widget untuk membuat indikator kemajuan melingkar (lingkaran berputar).
+- `MaterialPageRoute`: widget untuk membuat MaterialPageRoute yang isinya ditentukan oleh [Builder].
+- `ListView`: widget untuk membuat array widget linier yang scrollable dari sebuah list.
+
+## Mekanisme Pengambilan Data dari JSON Hingga Ditampilkan pada Flutter
+1. Menambahkan *dependency* `http`, *dependency* ini digunakan untuk bertukar data melalui *HTTP request*.
+2. Membuat model yang sesuai dengan JSON yang akan diambil.
+3. Membuat *HTTP request* menggunakan *dependency* `http`, yaitu method GET.
+4. *Decode* data JSON kemudian konversi sesuai dengan model yang telah dibuat.
+5. Menampilkan data yang telah dikonversi pada Flutter dengan memanfaatkan `FutureBuilder`.
+
+## Implementasi Checklist
+1. Membuat `mywatchlist_page.dart` untuk halaman *mywatchlist* yang berisikan semua *watch list*.
+2. Menambahkan routing pada drawer ke halaman *mywatchlist* (`mywatchlist_page.dart`).
+3. Menambahkan *dependency* `http` untuk melakukan fetch data.
+4. Membuat `mywatchlist.dart` untuk model *mywatchlist*.
+5. Membuat `fetch_watchlist.dart` untuk function fetch data dari Tugas 3. 
+6. Menggunakan function fetch data untuk mendapatkan data *watch list*.
+7. Data yang didapatkan akan di-*loop* dan ditampilkan sebagai *container* pada halaman semua *watch list*.
+8. Membuat `mywatchlist_detail.dart` untuk halaman detail *watch list*.
+9. Mengatur routing dari setiap judul *watch list* ke halaman detail yang bersesuaian ketika *container* dipencet.
